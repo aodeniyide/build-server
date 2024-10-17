@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start CI Job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .job {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .log-output {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .log-error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Build C Program</h1>
+
+    {% if not build_logs %}
+        <form action="" method="POST">
+            <input type="submit" value="Start">
+        </form>
+    {% else %}
+        <div class="logs">
+            {% for log in build_logs %}
+                <div class="log">
+                    <strong>{{ log.step }}:</strong>
+                    <div class="log-output">
+                        <pre>{{ log.output }}</pre>
+                    </div>
+                    {% if log.error %}
+                        <div class="log-error">
+                            Error: <pre>{{ log.error }}</pre>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            {% if artifact_path %}
+                <div class="download-link">
+                    <a href="{{ url_for('download_artifact', filename='hello') }}">Download Artifact</a>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
