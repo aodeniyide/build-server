@@ -37,10 +37,13 @@ pip3 install -r requirements.txt
 
 ## Running the Application
 ```
-python3 app/server.py
+cd app/
 
-Access the application: Open your web browser and navigate to http://127.0.0.1:8000 to access the application.
+python3 server.py
 ```
+
+## Access the application: 
+Open your web browser and navigate to http://127.0.0.1:8000
 
 ### Using the Application
   * On the home page, enter the [GitHub repository URL of the program](git@github.com:aodeniyide/sample-program.git) and click the **Start** button.
