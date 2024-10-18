@@ -14,18 +14,20 @@ This application allows users to build a C program and download the generated ar
 
 ## Setting Up a Virtual Environment
 Create a virtual environment: Open a terminal and navigate to your project directory. Run the following command to create a virtual environment named venv:
-```
-python3 -m venv venv
+```bash
+python -m venv venv
 ```
 ## Activate the virtual environment:
 
-```
+```bash
 source venv/bin/activate
 ```
 
 ## Clone Build server
 ```
 git clone git@github.com:aodeniyide/build-server.git
+
+cd build-server/
 ```
 ## Install required packages
 ```
@@ -35,7 +37,7 @@ pip3 install -r requirements.txt
 
 ## Running the Application
 ```
-python3 server.py
+python3 app/server.py
 
 Access the application: Open your web browser and navigate to http://127.0.0.1:8000 to access the application.
 ```
