@@ -29,4 +29,4 @@ jobs:
 
 
 ## Goal #4: A web page showing C programs & their statuses
-* i was not sure how to set this status, which would need to update the html and 
+* I was not able to fully complete this task which would need to update the `start.html` page to include the build status 

@@ -20,7 +20,7 @@ class TestJobSteps(unittest.TestCase):
                 "steps": [
                     {
                         "name": "Checkout",
-                        "run": "git clone git@github.com:aodeniyide/sample-program.git cloned_repo",
+                        "run": "git clone git@github.com:aodeniyide/sample-program.git build",
                     },
                     {"name": "Makefile", "run": "make"},
                 ]
