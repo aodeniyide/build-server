@@ -2,13 +2,13 @@ import shutil
 import unittest
 import os
 from unittest.mock import patch
-from app.server import jobs
+from app.server import run_job_steps
 
 
 class TestJobSteps(unittest.TestCase):
 
     @patch("subprocess.run")
-    def test_build_job_success(self, mock_subprocess):
+    def test_run_job_steps_success(self, mock_subprocess):
         # Mock subprocess to simulate successful command execution
         mock_subprocess.return_value.returncode = 0
         mock_subprocess.return_value.stdout = "Success!"
@@ -35,7 +35,7 @@ class TestJobSteps(unittest.TestCase):
             f.write("This is the build artifact.")
 
         # Run the steps
-        logs, success, artifact = jobs(
+        logs, success, artifact = run_job_steps(
             "build", mock_jobs["build"], repo_dir="build"
         )
 

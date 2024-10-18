@@ -9,7 +9,7 @@ import shutil
 app = Flask(__name__)
 
 
-def jobs(job_name, job_details, repo_dir=None):
+def run_job_steps(job_name, job_details, repo_dir=None):
     """
     Execute a series of job steps for a C program pipeline.
 
@@ -123,7 +123,7 @@ def start_page(repo_url):
         # Check if cloning was successful
         if clone_result.returncode == 0:
             # Run the Makefile step in the cloned repo directory which contains our makefile
-            build_logs, build_success, artifact_path = jobs(
+            build_logs, build_success, artifact_path = run_job_steps(
                 "build", jobs["build"], repo_dir=repo_dir
             )
         else:
@@ -159,3 +159,4 @@ def download_artifact(filename):
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
+
